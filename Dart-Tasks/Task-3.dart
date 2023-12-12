@@ -23,31 +23,31 @@ class Calculator {
 }
 
 void main() async {
-  Calculator calc = Calculator();
+  Calculator calculating = Calculator();
 
-  stdout.write('Enter the first number: ');
+  print('Enter the first number: ');
   double firstNumber = double.parse(stdin.readLineSync()!);
 
-  stdout.write('Enter the second number: ');
+  print('Enter the second number: ');
   double secondNumber = double.parse(stdin.readLineSync()!);
 
-  stdout.write('Choose operation (+, -, *, /): ');
+  print('Choose operation (+, -, *, /): ');
   String operation = stdin.readLineSync()!;
 
   double result;
   try {
     switch (operation) {
       case '+':
-        result = calc.add(firstNumber, secondNumber);
+        result = calculating.add(firstNumber, secondNumber);
         break;
       case '-':
-        result = calc.subtract(firstNumber, secondNumber);
+        result = calculating.subtract(firstNumber, secondNumber);
         break;
       case '*':
-        result = calc.multiply(firstNumber, secondNumber);
+        result = calculating.multiply(firstNumber, secondNumber);
         break;
       case '/':
-        result = calc.divide(firstNumber, secondNumber);
+        result = calculating.divide(firstNumber, secondNumber);
         break;
       default:
         print('Invalid operation');
