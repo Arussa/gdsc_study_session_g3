@@ -23,7 +23,7 @@ class taskdetail extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset('assets/images/ladywiztodoboard.png'),
+            Image.asset('assets/ladywiztodoboard.png'),
             const Text('Title: ',
                 style: TextStyle(fontWeight: FontWeight.bold)),
             const Text('Task Name'),

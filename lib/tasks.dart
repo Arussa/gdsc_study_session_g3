@@ -51,7 +51,7 @@ class Tasks extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.asset('assets/images/stickmanholdingtodolist.jpeg'),
+          Image.asset('assets/stickmanholdingtodolist.jpeg'),
           Expanded(
             child: ListView.builder(
               itemCount: todoList.length,

@@ -12,7 +12,7 @@ class splashpage extends StatelessWidget {
       body: Stack(
         children: [
           Image.asset(
-            'assets/images/paintingstickman.png',
+            'assets/paintingstickman.png',
             fit: BoxFit.cover,
           ),
           Positioned(
