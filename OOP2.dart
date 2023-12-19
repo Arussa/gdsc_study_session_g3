@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class Animal {
   String name;
   int id;
@@ -12,6 +14,7 @@ class Cat extends Animal {
   Cat(int id, String name, String color, this.sound) : super(name, id, color);
 
   void printcxcs() {
+    // ignore: avoid_print
     print('Details: Animal Name: $name id: $id color: $color Sound: $sound');
   }
 }

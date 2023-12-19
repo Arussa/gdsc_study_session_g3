@@ -1,5 +1,8 @@
+// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:tskfour/splashpage.dart';
+import 'package:tskfour/tasks.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,11 +11,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: splashpage(),
+    var someTodoList;
+    return MaterialApp(
+      home: const splashpage(),
+      routes: {
+        '/tasks': (context) => Tasks(todoList: someTodoList),
+      },
     );
   }
 }

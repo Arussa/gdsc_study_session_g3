@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, prefer_typing_uninitialized_variables, avoid_print
+
 void calculateGrade(double score) {
   if (score >= 0 && score <= 100) {
     var grade;

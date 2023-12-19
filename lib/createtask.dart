@@ -5,17 +5,16 @@ import 'package:flutter/material.dart';
 class create_task extends StatelessWidget {
   const create_task({super.key});
 
-/*Future<void> _selectDate(BuildContext context) async {
-    final DateTime duedate = await showDatePicker(
+// ignore: unused_element
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? duedate = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2023),
       lastDate: DateTime(2024),
     );
-    if (picked != null) {
-     
-    }
-  }*/
+    if (duedate != null) {}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +45,12 @@ class create_task extends StatelessWidget {
                 labelText: 'Due Date',
               ),
             ),
-            const TextField(
+            TextField(
               readOnly: true,
-              //  onTap: () => duedate(context),
-              decoration: InputDecoration(
+              onTap: () {
+                _selectDate(context);
+              },
+              decoration: const InputDecoration(
                 labelText: 'Description',
               ),
               maxLines: 5,

@@ -1,5 +1,6 @@
-void main() {
+// ignore_for_file: file_names, avoid_print
 
+void main() {
   final numbers = [1, 8, 3, 3, 4, 45, 5, 69, 10, 39, 91, 10];
 
   print('Maximum Number: ${findMaximum(numbers)}');

@@ -13,16 +13,15 @@ class splashpage extends StatelessWidget {
         children: [
           Image.asset(
             'assets/paintingstickman.png',
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
           Positioned(
             bottom: 20,
-            left: 0,
-            right: 0,
+            left: 200,
+            right: 200,
             child: ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/tasks'),
-              child: const Text('Get Started'),
-            ),
+                onPressed: () => Navigator.pushNamed(context, '/tasks'),
+                child: const Text('Get Started')),
           ),
         ],
       ),
