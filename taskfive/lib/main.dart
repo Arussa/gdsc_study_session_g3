@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final List<String> bookTitles = [
+    'Rich Dad Poor Dad',
+    'Yeteqolefebet qulif',
+    'Yetewega Lib',
+    'Lela Sew'
+  ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'GDSC Bookstore',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -26,12 +34,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            // Menu functionality
+          },
+        ),
         title: const Text('GDSC Bookstore'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.menu),
+            icon: const Icon(Icons.filter_list),
             onPressed: () {
-              //  menu functionality
+              // Filter functionality
             },
           ),
         ],
@@ -41,7 +55,16 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('Search Bar'),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Search...',
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              onChanged: (value) {},
+            ),
             const SizedBox(height: 16.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,6 +122,36 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 8.0),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class BookListItem extends StatelessWidget {
+  final String title;
+  const BookListItem({Key? key, required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.network(
+            'https://via.placeholder.com/150',
+            height: 120,
+            width: 150,
+            fit: BoxFit.cover,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              title,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
       ),
     );
   }
