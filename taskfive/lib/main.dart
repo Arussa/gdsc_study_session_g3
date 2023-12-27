@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.menu),
             onPressed: () {
-              // Add menu icon functionality
+              //  menu functionality
             },
           ),
         ],
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('Search Bar'), // Placeholder for search bar widget
+            const Text('Search Bar'),
             const SizedBox(height: 16.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -49,29 +49,28 @@ class HomePage extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.filter),
                   onPressed: () {
-                    // Add filter icon functionality
+                    //  filter functionality
                   },
                 ),
-                const Text(
-                    'Video Player'), // Placeholder for video player widget
+                const Text('Video Player'),
                 Row(
                   children: [
                     IconButton(
                       icon: const Icon(Icons.bookmark),
                       onPressed: () {
-                        // Add bookmark icon functionality
+                        //  bookmark functionality
                       },
                     ),
                     IconButton(
                       icon: const Icon(Icons.share),
                       onPressed: () {
-                        // Add share icon functionality
+                        //  share functionality
                       },
                     ),
                     IconButton(
                       icon: const Icon(Icons.translate),
                       onPressed: () {
-                        // Add translate icon functionality
+                        // translate functionality
                       },
                     ),
                   ],
@@ -94,13 +93,10 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 16.0),
             const Text('Recommendation'),
             const SizedBox(height: 8.0),
-            // Placeholder for slideshow widget with book recommendations
             const Text('New'),
             const SizedBox(height: 8.0),
-            // Placeholder for slideshow widget with new books
             const Text('Trending'),
             const SizedBox(height: 8.0),
-            // Placeholder for slideshow widget with trending books
           ],
         ),
       ),
@@ -122,7 +118,7 @@ class CategoryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: () {
-        // Add functionality for category button
+        //  functionality for category
       },
       icon: Icon(icon),
       label: Text(label),
