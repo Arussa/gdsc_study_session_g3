@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  final List<String> bookTitles = [
-    'Rich Dad Poor Dad',
-    'Yeteqolefebet qulif',
-    'Yetewega Lib',
-    'Lela Sew'
-  ];
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +15,35 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final List<Map<String, String>> books = [
+    {
+      'title': 'Rich Dad Poor Dad',
+      'imageUrl':
+          'https://th.bing.com/th/id/OIP.hUNBARsl5-RoOLD6hbhV2AHaLG?w=145&h=218&c=7&r=0&o=5&dpr=1.5&pid=1.7',
+    },
+    {
+      'title': 'Yeteqolefebet qulif',
+      'imageUrl': 'https://pictures.abebooks.com/isbn/9780615816999-us.jpg',
+    },
+    {
+      'title': 'Yetewega Lib',
+      'imageUrl':
+          'https://th.bing.com/th/id/R.eb86e9d73d77618b47390721572c117a?rik=l5wnzSvX%2fXaPoA&riu=http%3a%2f%2fwww.mereb.shop%2fImage%2fProduct%2f49435409%2f49435409-84-903-large.jpg&ehk=T%2ftqAueIhArjco4qeZMRFkBLZVNPzrQsB2LpMKJoJ2I%3d&risl=&pid=ImgRaw&r=0',
+    },
+    {
+      'title': 'Lela Sew',
+      'imageUrl':
+          'https://th.bing.com/th/id/OIP.cba6L5OEShuubf3AJwYT1AAAAA?w=115&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7',
+    },
+  ];
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -72,31 +87,39 @@ class HomePage extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.filter),
                   onPressed: () {
-                    //  filter functionality
+                    // Filter functionality
                   },
                 ),
-                const Text('Video Player'),
-                Row(
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.bookmark),
-                      onPressed: () {
-                        //  bookmark functionality
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.share),
-                      onPressed: () {
-                        //  share functionality
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.translate),
-                      onPressed: () {
-                        // translate functionality
-                      },
-                    ),
-                  ],
+                // Replace with your custom widget containing icons
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.bookmark),
+                        onPressed: () {
+                          // Bookmark functionality
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.share),
+                        onPressed: () {
+                          // Share functionality
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.translate),
+                        onPressed: () {
+                          // Translate functionality
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -116,10 +139,55 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 16.0),
             const Text('Recommendation'),
             const SizedBox(height: 8.0),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for (var book in books)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: BookListItem(
+                        title: book['title']!,
+                        imageUrl: book['imageUrl']!,
+                      ),
+                    ),
+                ],
+              ),
+            ),
             const Text('New'),
             const SizedBox(height: 8.0),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for (var book in books)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: BookListItem(
+                        title: book['title']!,
+                        imageUrl: book['imageUrl']!,
+                      ),
+                    ),
+                ],
+              ),
+            ),
             const Text('Trending'),
             const SizedBox(height: 8.0),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  for (var book in books)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                      child: BookListItem(
+                        title: book['title']!,
+                        imageUrl: book['imageUrl']!,
+                      ),
+                    ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -129,7 +197,13 @@ class HomePage extends StatelessWidget {
 
 class BookListItem extends StatelessWidget {
   final String title;
-  const BookListItem({Key? key, required this.title}) : super(key: key);
+  final String imageUrl;
+
+  const BookListItem({
+    Key? key,
+    required this.title,
+    required this.imageUrl,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -139,7 +213,7 @@ class BookListItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.network(
-            'https://via.placeholder.com/150',
+            imageUrl,
             height: 120,
             width: 150,
             fit: BoxFit.cover,
@@ -162,16 +236,16 @@ class CategoryButton extends StatelessWidget {
   final IconData icon;
 
   const CategoryButton({
-    super.key,
+    Key? key,
     required this.label,
     required this.icon,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: () {
-        //  functionality for category
+        // Functionality for category
       },
       icon: Icon(icon),
       label: Text(label),
