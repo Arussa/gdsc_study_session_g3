@@ -5,7 +5,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  // ignore: use_key_in_widget_constructors
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -90,35 +91,67 @@ class HomePage extends StatelessWidget {
                     // Filter functionality
                   },
                 ),
-                // Replace with your custom widget containing icons
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                  decoration: BoxDecoration(
+                const SizedBox(
+                  width: 430.0,
+                  height: 200.0,
+                  child: Card(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.bookmark),
-                        onPressed: () {
-                          // Bookmark functionality
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.share),
-                        onPressed: () {
-                          // Share functionality
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.translate),
-                        onPressed: () {
-                          // Translate functionality
-                        },
-                      ),
-                    ],
+                    elevation: 1.0,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(265.0, 1.0, 3.0, 0.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Sep 23, 2023',
+                                style: TextStyle(
+                                  fontSize: 12.0,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(70.0, 3.0, 50, 0.0),
+                          child: Row(
+                            children: [
+                              Icon(Icons.pause,
+                                  color: Colors.white, size: 25.0),
+                              SizedBox(width: 27.0),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(5, 15, 5, 5),
+                                child: Text(
+                                  'Today a reader \n tomorrow a',
+                                  style: TextStyle(
+                                    fontSize: 19,
+                                    color: Color.fromRGBO(225, 225, 221, 1),
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 0.09,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 40.0),
+                              Icon(Icons.pause, color: Colors.white, size: 38.0)
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(30.0, 0.0, 40.0, 0.0),
+                          child: Text(
+                            'LEADER',
+                            style: TextStyle(
+                              fontSize: 45.0,
+                              color: Color.fromRGBO(248, 248, 247, 1),
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 2.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
