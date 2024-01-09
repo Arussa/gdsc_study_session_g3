@@ -2,22 +2,28 @@
 
 import 'package:flutter/material.dart';
 import 'package:tskfour/splashpage.dart';
+// ignore: unused_import
 import 'package:tskfour/tasks.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  // ignore: prefer_const_constructors_in_immutables
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var someTodoList;
-    return MaterialApp(
-      home: const splashpage(),
+    /* var someTodoList = <TodoItem>[
+      TodoItem(title: 'Task 1'),
+      TodoItem(title: 'Task 2'),
+    ];*/
+    return const MaterialApp(
+      home: SplashPage(),
       routes: {
-        '/tasks': (context) => Tasks(todoList: someTodoList),
+        // '/': (context) => const SplashPage(),
+        // '/tasks': (context) => Tasks(todoList: someTodoList),
       },
     );
   }
