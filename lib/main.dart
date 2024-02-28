@@ -1,23 +1,25 @@
-// ignore_for_file: non_constant_identifier_names, prefer_typing_uninitialized_variables
-
 import 'package:flutter/material.dart';
-import 'package:tskfour/splashpage.dart';
-import 'package:tskfour/tasks.dart';
+import 'createtask.dart';
+import 'taskdetail.dart';
+import 'tasklist.dart';
+import 'home.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var someTodoList;
     return MaterialApp(
-      home: const splashpage(),
+      debugShowCheckedModeBanner: false,
+      title: 'My App',
+      initialRoute: '/',
       routes: {
-        '/tasks': (context) => Tasks(todoList: someTodoList),
+        '/': (context) => const MainPage(),
+        '/tasks': (context) => const TasksPage(),
+        '/create-task': (context) => const CreateTaskPage(),
+        '/task-detail': (context) => const TaskDetailPage(),
       },
     );
   }
